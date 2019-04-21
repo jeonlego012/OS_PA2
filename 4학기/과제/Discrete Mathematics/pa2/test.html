@@ -23,8 +23,8 @@ function drawTree(x1, y1, angle, depth){
     var x2 = x1 + (Math.cos(angle * deg_to_rad) * depth * 10.0);
     var y2 = y1 + (Math.sin(angle * deg_to_rad) * depth * 10.0);
     drawLine(x1, y1, x2, y2);
-    //drawTree(x2, y2, angle - 20, depth - 1);
-    //drawTree(x2, y2, angle + 20, depth - 1);
+    drawTree(x2, y2, angle - 20, depth - 1);
+    drawTree(x2, y2, angle + 20, depth - 1);
   }
 }
 function doDraw(){

@@ -1,12 +1,11 @@
 <html>
-<body>
 
+<body>
 <input type="text" id="depth" value="">
 <button onclick="doDraw()">Draw</button>
 <button onclick="doClear()">Clear</button>
 <br>
 <canvas id="canvas" width="600" height="500"></canvas>
-
 
 <script type="text/javascript">
     var elem = document.getElementById('canvas');
@@ -14,12 +13,12 @@
     context.fillStyle = '#000';
     context.lineWidth = 1;
     var deg_to_rad = Math.PI / 180.0;
-    
+
     function drawRect(x1, y1, length, angle){
         context.translate(x1,y1);
         context.rotate(angle*deg_to_rad);
         context.translate(-(x1),-(y1));
-        context.rect(x1, y1, length, length); //길이 = 100
+        context.strokeRect(x1, y1, length, length); //길이 = 100
     }
    function drawTree(x1, y1, length, angle, depth) {
         if(depth!=0){
@@ -32,7 +31,7 @@
             var ll = length*Math.cos(30*deg_to_rad);
             var rl = length*Math.sin(30*deg_to_rad);
             drawTree(x3, y3, ll, -30, depth-1);
-            drawTree(x4, y4, rl, -60, depth-1);
+            drawTree(x4, y4, rl, 60, depth-1);
         }
         
     }
@@ -48,6 +47,6 @@
         context.clearRect(0, 0, canvas.width, canvas.height) ;
     }
 </script>
- 
+
 </body>
 </html>
